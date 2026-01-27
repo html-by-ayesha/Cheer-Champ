@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheer Champ - Admin Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffb3e6 0%, #ffe680 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(255, 110, 199, 0.3);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ff6ec7;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .admin-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 110, 199, 0.2);
+        }
+
+        .admin-card h2 {
+            color: #ff6ec7;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ffe680;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ffe6f5;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6ec7;
+            box-shadow: 0 0 0 3px rgba(255, 110, 199, 0.1);
+        }
+
+        .form-group input[type="file"] {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 110, 199, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            margin-top: 10px;
+        }
+
+        .shop-list {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 110, 199, 0.2);
+        }
+
+        .shop-list h2 {
+            color: #ff6ec7;
+            font-size: 28px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ffe680;
+        }
+
+        .product-item {
+            background: #fff9f0;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid #ffe6f5;
+            transition: all 0.3s;
+        }
+
+        .product-item:hover {
+            transform: translateX(5px);
+            border-color: #ff6ec7;
+        }
+
+        .product-info h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .product-price {
+            color: #ff6ec7;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-small {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-edit {
+            background: #ffd93d;
+            color: #333;
+        }
+
+        .btn-delete {
+            background: #ff6ec7;
+            color: white;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .preview-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid #ffe6f5;
+            margin-right: 15px;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #c3e6cb;
+            display: none;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border: 2px solid #ffd93d;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-box h3 {
+            color: #ff6ec7;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🌟 Cheer Champ Admin Panel 💖</h1>
+            <p>Manage your shop easily - No coding required!</p>
+        </div>
+
+        <!-- Info Box -->
+        <div class="info-box">
+            <h3>📌 Instructions:</h3>
+            <p>
+                ✅ Fill the form below to add shop<br>
+                ✅ Upload product images from your computer<br>
+                ✅ All changes are saved locally in your browser<br>
+                ✅ Click "View Website" to see your changes
+            </p>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+            ✅ Product added successfully!
+        </div>
+
+        <!-- Admin Grid -->
+        <div class="admin-grid">
+            <!-- Add Product Form -->
+            <div class="admin-card">
+                <h2>➕ Add New Product</h2>
+                <form id="addProductForm">
+                    <div class="form-group">
+                        <label>Product Name:</label>
+                        <input type="text" id="productName" placeholder="e.g., Embroidered Winter Dress" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category:</label>
+                        <select id="productCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Women's Wear">Women's Wear</option>
+                            <option value="Girls Collection">Girls Collection</option>
+                            <option value="Boys Collection">Boys Collection</option>
+                            <option value="Premium Collection">Premium Collection</option>
+                            <option value="Designer Wear">Designer Wear</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Price (PKR):</label>
+                        <input type="number" id="productPrice" placeholder="e.g., 4500" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Old Price (Optional - for discount):</label>
+                        <input type="number" id="productOldPrice" placeholder="e.g., 5000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Product Image:</label>
+                        <input type="file" id="productImage" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rating (1-5):</label>
+                        <input type="number" id="productRating" min="1" max="5" value="5" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Reviews:</label>
+                        <input type="number" id="productReviews" value="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="isNewProduct" style="width: auto; margin-right: 5px;">
+                            Mark as NEW
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn">Add Product</button>
+                </form>
+            </div>
+
+            <!-- Settings -->
+            <div class="admin-card">
+                <h2>⚙️ Website Settings</h2>
+                
+                <div class="form-group">
+                    <label>Announcement Text:</label>
+                    <textarea id="announcementText" rows="2" placeholder="e.g., 10% OFF for International Customers">✨ Special Offer: 10% OFF for International Customers | Free Shipping on Orders Over PKR 5000 ✨</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Store Email:</label>
+                    <input type="email" id="storeEmail" placeholder="info@cheerchamp.com" value="info@cheerchamp.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Store Phone:</label>
+                    <input type="tel" id="storePhone" placeholder="+92 300 1234567" value="+92 300 1234567">
+                </div>
+
+                <div class="form-group">
+                    <label>Facebook Link:</label>
+                    <input type="url" id="facebookLink" placeholder="https://facebook.com/cheerchamp">
+                </div>
+
+                <div class="form-group">
+                    <label>Instagram Link:</label>
+                    <input type="url" id="instagramLink" placeholder="https://instagram.com/cheerchamp">
+                </div>
+
+                <button type="button" class="btn" onclick="saveSettings()">Save Settings</button>
+                <button type="button" class="btn btn-secondary" onclick="window.open('index.html', '_blank')">View Website</button>
+            </div>
+        </div>
+
+        <!-- shop List -->
+        <div class="shop-list">
+            <h2>📦 Your shop</h2>
+            <div id="shopList">
+                <p style="color: #999; text-align: center; padding: 40px;">No shop added yet. Add your first product above! 👆</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load shop from localStorage
+        let shop = JSON.parse(localStorage.getItem('cheerChampshop')) || [];
+
+        // Display shop
+        function displayshop() {
+            const shopList = document.getElementById('shopList');
+            
+            if (shop.length === 0) {
+                shopList.innerHTML = '<p style="color: #999; text-align: center; padding: 40px;">No shop added yet. Add your first product above! 👆</p>';
+                return;
+            }
+
+            shopList.innerHTML = shop.map((product, index) => `
+                <div class="product-item">
+                    <div style="display: flex; align-items: center; flex: 1;">
+                        <img src="${product.image}" alt="${product.name}" class="preview-image">
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <p>${product.category} • ⭐ ${product.rating}/5 (${product.reviews} reviews)</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div class="product-price">PKR ${product.price}</div>
+                        <div class="product-actions">
+                            <button class="btn-small btn-edit" onclick="editProduct(${index})">Edit</button>
+                            <button class="btn-small btn-delete" onclick="deleteProduct(${index})">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add product
+        document.getElementById('addProductForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('productName').value;
+            const category = document.getElementById('productCategory').value;
+            const price = document.getElementById('productPrice').value;
+            const oldPrice = document.getElementById('productOldPrice').value;
+            const rating = document.getElementById('productRating').value;
+            const reviews = document.getElementById('productReviews').value;
+            const isNew = document.getElementById('isNewProduct').checked;
+            const imageFile = document.getElementById('productImage').files[0];
+
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const product = {
+                        name: name,
+                        category: category,
+                        price: price,
+                        oldPrice: oldPrice,
+                        rating: rating,
+                        reviews: reviews,
+                        isNew: isNew,
+                        image: e.target.result
+                    };
+
+                    shop.push(product);
+                    localStorage.setItem('cheerChampshop', JSON.stringify(shop));
+                    
+                    // Show success message
+                    const successMsg = document.getElementById('successMessage');
+                    successMsg.style.display = 'block';
+                    setTimeout(() => {
+                        successMsg.style.display = 'none';
+                    }, 3000);
+
+                    // Reset form
+                    document.getElementById('addProductForm').reset();
+                    
+                    // Update display
+                    displayshop();
+                };
+                reader.readAsDataURL(imageFile);
+            }
+        });
+
+        // Delete product
+        function deleteProduct(index) {
+            if (confirm('Are you sure you want to delete this product?')) {
+                shop.splice(index, 1);
+                localStorage.setItem('cheerChampshop', JSON.stringify(shop));
+                displayshop();
+            }
+        }
+
+        // Edit product (simple version)
+        function editProduct(index) {
+            const product = shop[index];
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('productOldPrice').value = product.oldPrice || '';
+            document.getElementById('productRating').value = product.rating;
+            document.getElementById('productReviews').value = product.reviews;
+            document.getElementById('isNewProduct').checked = product.isNew;
+            
+            // Delete old product
+            deleteProduct(index);
+            
+            // Scroll to form
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Save settings
+        function saveSettings() {
+            const settings = {
+                announcement: document.getElementById('announcementText').value,
+                email: document.getElementById('storeEmail').value,
+                phone: document.getElementById('storePhone').value,
+                facebook: document.getElementById('facebookLink').value,
+                instagram: document.getElementById('instagramLink').value
+            };
+            
+            localStorage.setItem('cheerChampSettings', JSON.stringify(settings));
+            alert('✅ Settings saved successfully!');
+        }
+
+        // Load on page load
+        displayshop();
+    </script>
+</body>
+</html>

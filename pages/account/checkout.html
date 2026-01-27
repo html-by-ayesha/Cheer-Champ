@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Cheer Champ</title>
+    <link rel="stylesheet" href="../../css/style.css">
+
+
+    <style>
+        /* Checkout Page Specific Styles */
+        .checkout-page {
+            max-width: 1400px;
+            margin: 50px auto;
+            padding: 0 40px;
+            min-height: 70vh;
+        }
+
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .checkout-header h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+        }
+
+        .checkout-form-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 5px 25px rgba(255, 110, 199, 0.15);
+        }
+
+        .form-section-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #fff0f9;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group-full {
+            margin-bottom: 20px;
+        }
+
+        .form-group-full label,
+        .form-row .form-group label {
+            display: block;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group-full input,
+        .form-group-full select,
+        .form-group-full textarea,
+        .form-row .form-group input,
+        .form-row .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #ffe6f5;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group-full input:focus,
+        .form-group-full select:focus,
+        .form-group-full textarea:focus,
+        .form-row .form-group input:focus,
+        .form-row .form-group select:focus {
+            outline: none;
+            border-color: #ff6ec7;
+            box-shadow: 0 0 0 3px rgba(255, 110, 199, 0.1);
+        }
+
+        .form-group-full textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .order-summary-checkout {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 25px rgba(255, 110, 199, 0.15);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .order-summary-checkout h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #fff0f9;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #fff0f9;
+        }
+
+        .order-item-info {
+            flex: 1;
+        }
+
+        .order-item-name {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .order-item-qty {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .order-item-price {
+            font-weight: 700;
+            color: #ff6ec7;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .payment-method {
+            margin: 30px 0;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #ffe6f5;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-option:hover {
+            border-color: #ff6ec7;
+            background: #fff9f0;
+        }
+
+        .payment-option input[type="radio"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .payment-option label {
+            cursor: pointer;
+            font-weight: 600;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Fredoka', sans-serif;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(255, 110, 199, 0.3);
+        }
+
+        .place-order-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 110, 199, 0.5);
+        }
+
+        .secure-checkout {
+            text-align: center;
+            margin-top: 15px;
+            color: #27ae60;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .order-summary-checkout {
+                position: static;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        ✨ Secure Checkout | Free Shipping on Orders Over PKR 5000 ✨
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='../../index.html'" style="cursor: pointer;">Cheer Champ</div>
+          <nav>
+    <ul>
+        <li><a href="../../index.html#winter">Winter '26</a></li>
+<li><a href="../shop/women.html">Women</a></li>
+<li><a href="../shop/girls.html">Girls</a></li>
+<li><a href="../info/company/reviews.html">Reviews</a></li>
+<li><a href="../info/customer%20care/about.html">About</a></li>
+<li><a href="../auth/login.html"><i class="fas fa-user"></i> Login</a></li>
+    </ul>
+</nav>
+            <div class="header-icons">
+                <button class="icon-btn" onclick="window.location.href='../../index.html'">🏠</button>
+                 <button class="icon-btn" onclick="window.location.href='../auth/login.html'">👤</button>
+                <button class="icon-btn cart-icon" onclick="window.location.href='cart.html'" style="position: relative;">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Page Content -->
+    <section class="checkout-page">
+        <div class="checkout-header">
+            <h1>Checkout</h1>
+            <p>Complete your order detail</p>
+        </div>
+
+        <div class="checkout-container">
+            <!-- Checkout Form -->
+            <div class="checkout-form-section">
+                <form id="checkoutForm">
+                    <!-- Contact Information -->
+                    <div style="margin-bottom: 40px;">
+                        <h2 class="form-section-title">📞 Contact Information</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name *</label>
+                                <input type="text" id="firstName" required placeholder="Enter first name">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name *</label>
+                                <input type="text" id="lastName" required placeholder="Enter last name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" id="email" required placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" id="phone" required placeholder="+92 300 1234567">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Address -->
+                    <div style="margin-bottom: 40px;">
+                        <h2 class="form-section-title">📦 Shipping Address</h2>
+                        
+                        <div class="form-group-full">
+                            <label>Street Address *</label>
+                            <input type="text" id="address" required placeholder="House number and street name">
+                        </div>
+
+                        <div class="form-group-full">
+                            <label>Apartment, Suite, etc. (Optional)</label>
+                            <input type="text" id="apartment" placeholder="Apartment, suite, unit, building, floor, etc.">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City *</label>
+                                <input type="text" id="city" required placeholder="City">
+                            </div>
+                            <div class="form-group">
+                                <label>Province *</label>
+                                <select id="province" required>
+                                    <option value="">Select Province</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Sindh">Sindh</option>
+                                    <option value="KPK">Khyber Pakhtunkhwa</option>
+                                    <option value="Balochistan">Balochistan</option>
+                                    <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                                    <option value="AJK">Azad Jammu & Kashmir</option>
+                                    <option value="Islamabad">Islamabad Capital Territory</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group-full">
+                            <label>Postal Code</label>
+                            <input type="text" id="postalCode" placeholder="Postal code">
+                        </div>
+                    </div>
+
+                    <!-- Additional Notes -->
+                    <div style="margin-bottom: 30px;">
+                        <h2 class="form-section-title">📝 Order Notes (Optional)</h2>
+                        
+                        <div class="form-group-full">
+                            <label>Special Instructions</label>
+                            <textarea id="orderNotes" placeholder="Any special instructions for your order? (e.g., preferred delivery time, gift wrapping)"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div>
+                        <h2 class="form-section-title">💳 Payment Method</h2>
+                        
+                        <div class="payment-method">
+                            <div class="payment-option">
+                                <input type="radio" id="cod" name="payment" value="cod" checked>
+                                <label for="cod">
+                                    <span style="font-size: 20px;">💵</span>
+                                    Cash on Delivery (COD)
+                                </label>
+                            </div>
+
+                            <div class="payment-option">
+                                <input type="radio" id="bank" name="payment" value="bank">
+                                <label for="bank">
+                                    <span style="font-size: 20px;">🏦</span>
+                                    Bank Transfer
+                                </label>
+                            </div>
+
+                            <div class="payment-option">
+                                <input type="radio" id="easypaisa" name="payment" value="easypaisa">
+                                <label for="easypaisa">
+                                    <span style="font-size: 20px;">📱</span>
+                                    EasyPaisa / JazzCash
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary-checkout">
+                <h2>Order Summary</h2>
+                
+                <div id="orderItems">
+                    <!-- Order items will be loaded here -->
+                </div>
+
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 2px solid #fff0f9;">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="checkoutSubtotal">PKR 0</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="checkoutShipping">PKR 250</span>
+                    </div>
+                    
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span class="amount" id="checkoutTotal">PKR 0</span>
+                    </div>
+                </div>
+
+                <button type="button" class="place-order-btn" onclick="placeOrder(event)">
+                    📱 Place Order via WhatsApp
+                </button>
+
+                <div class="secure-checkout">
+                    🔒 Secure Checkout
+                </div>
+
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="cart.html" style="color: #ff6ec7; font-weight: 600; text-decoration: none; font-size: 14px;">
+                        ← Back to Cart
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Head section me ye line add karo -->
+<!-- Head section me ye line add karo -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Footer -->
+<footer style="background: #2d3748; color: white; padding: 60px 5% 30px; font-family: 'Fredoka', sans-serif;">
+    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        
+        <!-- About Section -->
+        <div>
+            <div style="font-size: 28px; font-weight: 700; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">
+                Cheer Champ
+            </div>
+            <p style="color: #a0aec0; line-height: 1.8; font-size: 14px; margin-bottom: 25px;">
+                Your trusted destination for premium fashion and elegant collections. Quality meets style in every piece.
+            </p>
+            <div style="display: flex; gap: 15px;">
+                <a href="https://www.facebook.com/profile.php?id=100085191114412" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/cheerchamp.pk/" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@cheerchamp85" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://youtube.com/@cheerchamp.pkkidsclothingbrand?si=L7AzxWc4SMJo1L0M" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+
+
+
+        <!-- Shop -->
+        <div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Shop</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="../shop/women.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Women's Collection</a>
+        <a href="../shop/girls.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Girls Collection</a>
+        <a href="../shop/shendi.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shendi</a>
+        <a href="../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">New Arrivals</a>
+        <a href="../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Sale</a>
+    </div>
+</div>
+
+
+        <!-- Customer Care -->
+       <div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Customer Care</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+       <a href="../info/customer%20care/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Contact Us</a>
+<a href="../info/customer%20care/shipping.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shipping info</a>
+<a href="../info/customer%20care/returns.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Returns & Exchange</a>
+<a href="../info/customer%20care/size.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Size Guide</a>
+<a href="../info/customer%20care/faqs.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">FAQs</a>
+    </div>
+</div>
+
+        <!-- Company -->
+        <div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Company</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="../info/customer%20care/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">About Us</a>
+        <a href="../info/company/store%20locator.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Store Locator</a>
+        <a href="../info/company/reviews.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Customer Reviews</a>
+        <a href="../info/company/privacy%20policy.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Privacy Policy</a>
+     <a href="../info/company/terms%20conditions.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Terms & Conditions</a>
+    </div>
+</div>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #4a5568; text-align: center;">
+        <p style="color: #a0aec0; font-size: 14px; margin: 0;">
+            &copy; 2026 Cheer Champ. All rights reserved. Crafted with ❤️
+        </p>
+    </div>
+</footer>
+
+<script src="../../js/cart.js"></script>
+    <script>
+        // FORCE RELOAD CART - INLINE SCRIPT
+        console.log('=== CHECKOUT PAGE FORCE LOAD ===');
+        
+        // Get cart directly from localStorage
+        let checkoutCart = [];
+        const rawCart = localStorage.getItem('cheerChampCart');
+        
+        console.log('Raw cart from storage:', rawCart);
+        
+        if (rawCart) {
+            try {
+                checkoutCart = JSON.parse(rawCart);
+                console.log('Successfully parsed cart:', checkoutCart);
+                console.log('Cart has', checkoutCart.length, 'items');
+                
+                // Update global cart variable
+                if (typeof cart !== 'undefined') {
+                    cart = checkoutCart;
+                }
+                
+                // Display items immediately
+                displayItemsNow();
+                
+            } catch (e) {
+                console.error('Parse error:', e);
+            }
+        } else {
+            console.warn('No cart data found!');
+        }
+        
+        // Direct display function
+        function displayItemsNow() {
+            console.log('Displaying items NOW with', checkoutCart.length, 'shop');
+            
+            const container = document.getElementById('orderItems');
+            if (!container) {
+                console.error('Container not found!');
+                return;
+            }
+            
+            if (checkoutCart.length === 0) {
+                container.innerHTML = '<p style="text-align:center;color:#999;">Cart is empty</p>';
+                return;
+            }
+            
+            // Build HTML
+            let html = '';
+            checkoutCart.forEach(item => {
+                html += `
+                    <div class="order-item">
+                        <div class="order-item-info">
+                            <div class="order-item-name">${item.name}</div>
+                            <div class="order-item-qty">Qty: ${item.quantity} × PKR ${item.price.toLocaleString()}</div>
+                        </div>
+                        <div class="order-item-price">PKR ${(item.price * item.quantity).toLocaleString()}</div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            console.log('HTML inserted into container');
+            
+            // Update summary
+            updateSummaryNow();
+        }
+        
+        // Direct summary update
+        function updateSummaryNow() {
+            const subtotal = checkoutCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal > 5000 ? 0 : 250;
+            const total = subtotal + shipping;
+            
+            console.log('Summary - Subtotal:', subtotal, 'Shipping:', shipping, 'Total:', total);
+            
+            const subEl = document.getElementById('checkoutSubtotal');
+            const shipEl = document.getElementById('checkoutShipping');
+            const totEl = document.getElementById('checkoutTotal');
+            
+            if (subEl) subEl.textContent = `PKR ${subtotal.toLocaleString()}`;
+            if (shipEl) {
+                shipEl.textContent = shipping === 0 ? 'FREE ✨' : `PKR ${shipping}`;
+                shipEl.style.color = shipping === 0 ? '#27ae60' : '#666';
+            }
+            if (totEl) totEl.textContent = `PKR ${total.toLocaleString()}`;
+            
+            console.log('Summary updated!');
+        }
+    // ULTIMATE BUTTON HANDLER - DIRECT WHATSAPP
+        window.addEventListener('load', function() {
+            console.log('Page fully loaded!');
+            
+            const btn = document.querySelector('.place-order-btn');
+            
+            if (btn) {
+                console.log('✅ Button found!');
+                
+                // Remove any existing handlers
+                btn.onclick = null;
+                
+                // Add new click handler
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('🚀 Button clicked! Opening WhatsApp...');
+                    
+                    // Get form data
+                    const firstName = document.getElementById('firstName').value.trim();
+                    const lastName = document.getElementById('lastName').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const address = document.getElementById('address').value.trim();
+                    const city = document.getElementById('city').value.trim();
+                    const province = document.getElementById('province').value;
+                    
+                    // Quick validation
+                    if (!firstName || !lastName || !email || !phone || !address || !city || !province) {
+                        alert('❌ Please fill all required fields!');
+                        return;
+                    }
+                    
+                    // Get cart
+                    let orderCart = checkoutCart || [];
+                    
+                    if (orderCart.length === 0) {
+                        alert('❌ Your cart is empty!');
+                        return;
+                    }
+                    
+                    // Calculate totals
+                    const subtotal = orderCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                    const shipping = subtotal > 5000 ? 0 : 250;
+                    const total = subtotal + shipping;
+                    
+                    // Build WhatsApp message
+                    let msg = `🌟 *NEW ORDER - CHEER CHAMP* 🌟\n\n`;
+                    msg += `👤 *CUSTOMER*\n`;
+                    msg += `${firstName} ${lastName}\n`;
+                    msg += `📧 ${email}\n`;
+                    msg += `📱 ${phone}\n\n`;
+                    
+                    msg += `📦 *SHIPPING*\n`;
+                    msg += `${address}\n`;
+                    msg += `${city}, ${province}\n\n`;
+                    
+                    msg += `🛒 *ITEMS*\n`;
+                    orderCart.forEach((item, i) => {
+                        msg += `${i+1}. ${item.name}\n`;
+                        msg += `   Qty: ${item.quantity} × PKR ${item.price.toLocaleString()}\n`;
+                        msg += `   = PKR ${(item.price * item.quantity).toLocaleString()}\n\n`;
+                    });
+                    
+                    msg += `💰 *TOTAL*\n`;
+                    msg += `Subtotal: PKR ${subtotal.toLocaleString()}\n`;
+                    msg += `Shipping: ${shipping === 0 ? 'FREE ✨' : 'PKR ' + shipping}\n`;
+                    msg += `*Total: PKR ${total.toLocaleString()}*\n\n`;
+                    msg += `Thank you! 💖`;
+                    
+                    // Encode message
+                    const encodedMsg = encodeURIComponent(msg);
+                    
+                    // WhatsApp URL
+                    const wpURL = `https://wa.me/923176476167?text=${encodedMsg}`;
+                    
+                    console.log('📱 Opening WhatsApp now!');
+                    
+                    // Open WhatsApp
+                    window.open(wpURL, '_blank');
+                    
+                    // Success message
+                    setTimeout(() => {
+                        alert('✅ Order sent to WhatsApp! Please complete your order there.');
+                    }, 500);
+                });
+                
+                console.log('✅ WhatsApp handler attached!');
+            } else {
+                console.error('❌ Button not found!');
+            }
+        });
+        
+    </script>
+    script src="../../js/cart.js"></script>
+<script src="../../js/script.js"></script>
+<script src="../../js/checkout.js"></script>
+</body>
+</html>

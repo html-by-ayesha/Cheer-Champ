@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - Cheer Champ</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <style>
+        /* Reviews Page Styles */
+        .reviews-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 40px;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reviews-header h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .reviews-header p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(255, 110, 199, 0.15);
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: #ff6ec7;
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .reviews-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(255, 110, 199, 0.15);
+            border-left: 5px solid #ff6ec7;
+            transition: all 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 35px rgba(255, 110, 199, 0.25);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            font-weight: 700;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .reviewer-detail h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 20px;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .reviewer-detail .verified {
+            color: #27ae60;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .review-stars {
+            font-size: 20px;
+            color: #ffd93d;
+        }
+
+        .review-product {
+            background: #fff0f9;
+            padding: 12px 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            color: #ff6ec7;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .review-text {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .write-review-section {
+            background: linear-gradient(135deg, #fff0f9 0%, #fff9e6 100%);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 60px;
+            border: 3px solid #ffe6f5;
+        }
+
+        .write-review-section h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 36px;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .write-review-btn {
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Fredoka', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .write-review-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 110, 199, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        ✨ Read What Our Happy Customers Say! | 100% Authentic Reviews ✨
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='../../../index.html'" style="cursor: pointer;">Cheer Champ</div>
+          <nav>
+    <ul>
+       <a href="../../shop/shendi.html">Shendi</a>
+    <a href="../../../index.html#winter">Winter '26</a>
+    <a href="../../shop/women.html">Women</a>
+    <a href="../../shop/girls.html">Girls</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="../customer care/about.html">About</a>
+    <a href="../../auth/login.html">Login</a>
+    </ul>
+</nav>
+            <div class="header-icons">
+                <button class="icon-btn" onclick="window.location.href='../../../index.html'">🏠</button>
+                 <button class="icon-btn" onclick="window.location.href='../../auth/login.html'">👤</button>
+                <button class="icon-btn cart-icon" onclick="window.location.href='../../account/cart.html'" style="position: relative;">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Reviews Container -->
+    <div class="reviews-container">
+        <!-- Reviews Header -->
+        <div class="reviews-header">
+            <h1>⭐ Customer Reviews</h1>
+            <p>See what our happy customers are saying about Cheer Champ</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">4.9</div>
+                <div class="stat-label">Average Rating</div>
+                <div style="font-size: 24px; color: #ffd93d; margin-top: 10px;">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number">2,500+</div>
+                <div class="stat-label">Happy Customers</div>
+                <div style="font-size: 32px; margin-top: 10px;">💖</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+                <div style="font-size: 32px; margin-top: 10px;">😊</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number">1,200+</div>
+                <div class="stat-label">5-Star Reviews</div>
+                <div style="font-size: 32px; margin-top: 10px;">🌟</div>
+            </div>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="reviews-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">A</div>
+                        <div class="reviewer-detail">
+                            <h3>Ayesha Khan</h3>
+                            <div class="verified">✓ Verified Buyer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-product">Embroidered Winter Dress</div>
+                <div class="review-text">
+                    Absolutely love this dress! The quality is outstanding and the embroidery work is beautiful. 
+                    Fits perfectly and the fabric is so comfortable. Got so many compliments at the party. 
+                    Highly recommend Cheer Champ! 💖
+                </div>
+                <div class="review-date">Posted on January 15, 2026</div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">S</div>
+                        <div class="reviewer-detail">
+                            <h3>Sana Ahmed</h3>
+                            <div class="verified">✓ Verified Buyer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-product">Yellow Mehndi Maxi</div>
+                <div class="review-text">
+                    Perfect for my sister's mehndi! The color was exactly as shown in pictures. 
+                    Fast delivery and excellent customer service. The quality exceeded my expectations. 
+                    Will definitely order again! 🎉
+                </div>
+                <div class="review-date">Posted on January 12, 2026</div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">M</div>
+                        <div class="reviewer-detail">
+                            <h3>Mariam Hussain</h3>
+                            <div class="verified">✓ Verified Buyer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-product">Sequin Party Dress (Girls)</div>
+                <div class="review-text">
+                    Bought this for my daughter's birthday and she absolutely loved it! 
+                    The sequins are well-stitched and don't come off. Great value for money. 
+                    Customer service was very helpful with size selection. Thank you! ✨
+                </div>
+                <div class="review-date">Posted on January 10, 2026</div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">F</div>
+                        <div class="reviewer-detail">
+                            <h3>Fatima Ali</h3>
+                            <div class="verified">✓ Verified Buyer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-product">Premium Party Gown</div>
+                <div class="review-text">
+                    This is my third order from Cheer Champ and I'm never disappointed! 
+                    The gown is gorgeous, premium quality fabric, and the fit is perfect. 
+                    Love how they pack everything so nicely. Best online shopping experience! 💕
+                </div>
+                <div class="review-date">Posted on January 8, 2026</div>
+            </div>
+
+            <!-- Review 5 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">R</div>
+                        <div class="reviewer-detail">
+                            <h3>Rabia Malik</h3>
+                            <div class="verified">✓ Verified Buyer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-product">Velvet Maxi Dress</div>
+                <div class="review-text">
+                    Amazing quality! The velvet is so soft and luxurious. 
+                    Received my order within 3 days. Very impressed with the packaging too. 
+                    Highly recommend for winter weddings! 🌟
+                </div>
+                <div class="review-date">Posted on January 5, 2026</div>
+            </div>
+
+            <!-- Review 6 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">H</div>
+                        <div class="reviewer-detail">
+                            <h3>Hina Tariq</h3>
+                            <div class="verified">✓ Verified Buyer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-product">Green Floral Lehenga</div>
+                <div class="review-text">
+                    Absolutely stunning! Wore it to my friend's shendi and everyone asked where I got it from. 
+                    The floral work is beautiful and colors are vibrant. Worth every penny! 
+                    Thank you Cheer Champ! 💚
+                </div>
+                <div class="review-date">Posted on January 3, 2026</div>
+            </div>
+
+            <!-- Review 7 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">N</div>
+                        <div class="reviewer-detail">
+                            <h3>Noor Fatima</h3>
+                            <div class="verified">✓ Verified Buyer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-product">Cotton Casual Dress</div>
+                <div class="review-text">
+                    Good quality for the price! Comfortable and looks exactly like the pictures. 
+                    Delivery was quick. Only giving 4 stars because I wish there were more color options. 
+                    Overall very satisfied! 😊
+                </div>
+                <div class="review-date">Posted on January 1, 2026</div>
+            </div>
+
+            <!-- Review 8 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">Z</div>
+                        <div class="reviewer-detail">
+                            <h3>Zainab Shah</h3>
+                            <div class="verified">✓ Verified Buyer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-product">Designer Birthday Outfit (Girls)</div>
+                <div class="review-text">
+                    My daughter looked like a princess in this outfit! 
+                    The quality is exceptional and it's very well-made. 
+                    Customer service helped me choose the right size. Will order again for sure! 👑
+                </div>
+                <div class="review-date">Posted on December 28, 2025</div>
+            </div>
+        </div>
+
+        <!-- Write Review Section -->
+        <div class="write-review-section">
+            <h2>Share Your Experience! ✨</h2>
+            <p style="color: #666; font-size: 16px; margin-bottom: 30px;">
+                We'd love to hear from you! Share your review and help others make the right choice.
+            </p>
+            <button class="write-review-btn" onclick="alert('Review feature coming soon! For now, please share your feedback on WhatsApp.')">
+                ✍️ Write a Review
+            </button>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Stay In Style</h2>
+            <p>Subscribe to our newsletter and get 10% off your first order</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+        <!-- Head section me ye line add karo -->
+<!-- Head section me ye line add karo -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Footer -->
+<footer style="background: #2d3748; color: white; padding: 60px 5% 30px; font-family: 'Fredoka', sans-serif;">
+    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        
+        <!-- About Section -->
+        <div>
+            <div style="font-size: 28px; font-weight: 700; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">
+                Cheer Champ
+            </div>
+            <p style="color: #a0aec0; line-height: 1.8; font-size: 14px; margin-bottom: 25px;">
+                Your trusted destination for premium fashion and elegant collections. Quality meets style in every piece.
+            </p>
+            <div style="display: flex; gap: 15px;">
+                <a href="https://www.facebook.com/profile.php?id=100085191114412" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/cheerchamp.pk/" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@cheerchamp85" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://youtube.com/@cheerchamp.pkkidsclothingbrand?si=L7AzxWc4SMJo1L0M" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+
+
+
+        <!-- Shop -->
+        <div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Shop</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="../../shop/women.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Women's Collection</a>
+                <a href="../../shop/girls.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Girls Collection</a>
+                <a href="../../shop/shendi.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shendi</a>
+                <a href="../../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">New Arrivals</a>
+                <a href="../../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Sale</a>
+            </div>
+        </div>
+
+       <!-- Customer Care -->
+<div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Customer Care</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+       <a href="../customer care/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Contact Us</a>
+
+<a href="../customer care/shipping.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shipping info</a>
+
+<a href="../customer care/returns.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Returns & Exchange</a>
+
+<a href="../customer care/size.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Size Guide</a>
+
+<a href="../customer care/faqs.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">FAQs</a>
+
+    </div>
+</div>
+
+<!-- Company -->
+<div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Company</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="../customer care/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">About Us</a>
+        <a href="store locator.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Store Locator</a>
+        <a href="reviews.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Customer Reviews</a>
+        <a href="privacy policy.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Privacy Policy</a>
+     <a href="terms conditions.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Terms & Conditions</a>
+    </div>
+</div>
+
+</div>
+
+        <!-- Footer Bottom -->
+        <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #4a5568; text-align: center;">
+            <p style="color: #a0aec0; font-size: 14px; margin: 0;">
+                &copy; 2026 Cheer Champ. All rights reserved. Crafted with ❤️
+            </p>
+        </div>
+    </footer>
+<!-- Footer HTML yahan hoga -->
+
+<!-- JS Scripts -->
+<script src="../../../js/cart.js"></script>
+<script src="../../../js/script.js"></script>
+<script src="../../../js/checkout.js"></script>
+</body>
+</html>

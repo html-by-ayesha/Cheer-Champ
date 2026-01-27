@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheer Champ - Premium Kids Fashion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        ✨ Special Offer: 10% OFF for International Customers | Free Shipping on Orders Over PKR 5000 ✨
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">Cheer Champ</div>
+            <nav>
+                <ul>
+                    <li><a href="pages/shop/shendi.html">Shendi</a></li>
+                    <li><a href="index.html#winter">Winter '26</a></li>
+                    <li><a href="pages/shop/women.html">Women</a></li>
+                    <li><a href="pages/shop/girls.html">Girls</a></li>
+                    <li><a href="pages/info/company/reviews.html">Reviews</a></li>
+                    <li><a href="pages/info/customer%20care/about.html">About</a></li>
+                    <li><a href="pages/auth/login.html"><i class="fas fa-user"></i> Login</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-icons">
+                <button class="icon-btn" onclick="toggleSearch()" style="cursor: pointer;">🔍</button>
+                <button class="icon-btn" onclick="window.location.href='pages/auth/login.html'" style="cursor: pointer;">👤</button>
+                <button class="icon-btn cart-icon" onclick="window.location.href='pages/account/cart.html'" style="position: relative;">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="stars-decoration">
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+            <div class="star">⭐</div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-subtitle">New Collection 2026</div>
+            <h1>WINTER FESTIVE '26</h1>
+            <p class="hero-description">Discover elegance and style in our exclusive winter collection for kids</p>
+            <div class="cta-buttons">
+                <button class="btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+                <button class="btn-secondary" onclick="window.location.href='pages/shop/women.html'">View Collection</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories-section">
+        <div class="categories-container" style="max-width: 900px;">
+            <div class="category-pill" onclick="document.getElementById('shop').scrollIntoView({behavior: 'smooth'})"><span>⭐ All shop</span></div>
+            <div class="category-pill" onclick="document.getElementById('shop').scrollIntoView({behavior: 'smooth'})"><span>🆕 New Arrivals</span></div>
+            <div class="category-pill" onclick="window.location.href='pages/shop/women.html'"><span>👗 Women's Collection</span></div>
+            <div class="category-pill" onclick="window.location.href='pages/shop/girls.html'"><span>👧 Girls Collection</span></div>
+            <div class="category-pill" onclick="document.getElementById('shop').scrollIntoView({behavior: 'smooth'})"><span>🔥 Sale Items</span></div>
+            <div class="category-pill" onclick="document.getElementById('shop').scrollIntoView({behavior: 'smooth'})"><span>💎 Best Sellers</span></div>
+        </div>
+    </section>
+
+    <!-- shop Section -->
+    <section class="shop-section" id="shop">
+        <div class="section-title">
+            <h2>Featured Collection</h2>
+            <p>Handpicked styles for the season</p>
+        </div>
+
+        <div class="shop-header">
+            <div></div>
+            <div class="filter-group">
+                <button class="filter-btn" onclick="showFilterMenu()">⚙️ Filters</button>
+                <select class="filter-btn" onchange="alert('Sorting: ' + this.value)">
+                    <option>Sort: Newest</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Best Sellers</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="shop-grid">
+            <!-- Product 1 -->
+            <div class="product-card" data-product-id="1">
+                <div class="product-image-container">
+                    <div class="product-badges">
+                        <span class="badge badge-new">New</span>
+                        <span class="badge badge-sale">15% Off</span>
+                    </div>
+                   <div class="quick-view">
+    <button class="quick-view-btn"
+        onclick="window.location.href='pages/shop/product-detail.html?id=1'">
+        Quick View
+    </button>
+</div>
+
+                </div>
+                <div class="product-detail">
+                    <div class="product-category">Women's Wear</div>
+                    <div class="product-name">Embroidered Winter Dress</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-count">(48)</span>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="product-price">PKR 4,250</div>
+                        <div class="product-price-old">PKR 5,000</div>
+                        <div class="discount-badge">15% OFF</div>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(1, 'Embroidered Winter Dress', 4250, 5000, 'Women\'s Wear')">
+                        🛒 Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-product-id="2">
+                <div class="product-image-container">
+                    <div class="product-badges">
+                        <span class="badge badge-new">New</span>
+                        <span class="badge badge-sale">15% Off</span>
+                    </div>
+                    <div class="product-placeholder">👗</div>
+                     <div class="quick-view">
+    <button class="quick-view-btn"
+        onclick="window.location.href='pages/shop/product-detail.html?id=1'">
+        Quick View
+    </button>
+</div>
+                </div>
+                <div class="product-detail">
+                    <div class="product-category">Girls Collection</div>
+                    <div class="product-name">Sequin Party Dress</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-count">(92)</span>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="product-price">PKR 3,825</div>
+                        <div class="product-price-old">PKR 4,500</div>
+                        <div class="discount-badge">15% OFF</div>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(2, 'Sequin Party Dress', 3825, 4500, 'Girls Collection')">
+                        🛒 Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-product-id="3">
+                <div class="product-image-container">
+                    <div class="product-badges">
+                        <span class="badge badge-new">New</span>
+                        <span class="badge badge-sale">20% Off</span>
+                    </div>
+                    <div class="product-placeholder">👗</div>
+                     <div class="quick-view">
+    <button class="quick-view-btn"
+        onclick="window.location.href='pages/shop/product-detail.html?id=1'">
+        Quick View
+    </button>
+</div>
+                </div>
+                <div class="product-detail">
+                    <div class="product-category">Women's Wear</div>
+                    <div class="product-name">Elegant Winter Frock</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-count">(67)</span>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="product-price">PKR 3,200</div>
+                        <div class="product-price-old">PKR 4,000</div>
+                        <div class="discount-badge">20% OFF</div>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(3, 'Elegant Winter Frock', 3200, 4000, 'Women\'s Wear')">
+                        🛒 Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-product-id="4">
+                <div class="product-image-container">
+                    <div class="product-badges">
+                        <span class="badge badge-sale">Sale</span>
+                    </div>
+                    <div class="product-placeholder">👗</div>
+                    <div class="quick-view">
+    <button class="quick-view-btn"
+        onclick="window.location.href='pages/shop/product-detail.html?id=1'">
+        Quick View
+    </button>
+</div>
+                </div>
+                <div class="product-detail">
+                    <div class="product-category">Girls Collection</div>
+                    <div class="product-name">Festive Sparkle Dress</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-count">(125)</span>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="product-price">PKR 4,500</div>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(4, 'Festive Sparkle Dress', 4500, null, 'Girls Collection')">
+                        🛒 Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-product-id="5">
+                <div class="product-image-container">
+                    <div class="product-badges">
+                        <span class="badge badge-new">New</span>
+                    </div>
+                    <div class="product-placeholder">👗</div>
+                     <div class="quick-view">
+    <button class="quick-view-btn"
+        onclick="window.location.href='pages/shop/product-detail.html?id=1'">
+        Quick View
+    </button>
+</div>
+                </div>
+                <div class="product-detail">
+                    <div class="product-category">Premium Collection</div>
+                    <div class="product-name">Velvet Winter Elegance</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-count">(34)</span>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="product-price">PKR 5,500</div>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(5, 'Velvet Winter Elegance', 5500, null, 'Premium Collection')">
+                        🛒 Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-product-id="6">
+                <div class="product-image-container">
+                    <div class="product-badges">
+                        <span class="badge badge-new">New</span>
+                        <span class="badge badge-sale">15% Off</span>
+                    </div>
+                    <div class="product-placeholder">👗</div>
+                     <div class="quick-view">
+    <button class="quick-view-btn"
+        onclick="window.location.href='pages/shop/product-detail.html?id=1'">
+        Quick View
+    </button>
+</div>
+                </div>
+                <div class="product-detail">
+                    <div class="product-category">Designer Wear</div>
+                    <div class="product-name">Designer Party Outfit</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-count">(78)</span>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="product-price">PKR 4,675</div>
+                        <div class="product-price-old">PKR 5,500</div>
+                        <div class="discount-badge">15% OFF</div>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(6, 'Designer Party Outfit', 4675, 5500, 'Designer Wear')">
+                        🛒 Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-product-id="7">
+                <div class="product-image-container">
+                    <div class="product-placeholder">👗</div>
+                     <div class="quick-view">
+    <button class="quick-view-btn"
+        onclick="window.location.href='pages/shop/product-detail.html?id=1'">
+        Quick View
+    </button>
+</div>
+                </div>
+                <div class="product-detail">
+                    <div class="product-category">Women's Wear</div>
+                    <div class="product-name">Classic Winter Dress</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐</span>
+                        <span class="rating-count">(56)</span>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="product-price">PKR 3,800</div>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(7, 'Classic Winter Dress', 3800, null, 'Women\'s Wear')">
+                        🛒 Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-product-id="8">
+                <div class="product-image-container">
+                    <div class="product-badges">
+                        <span class="badge badge-sale">10% Off</span>
+                    </div>
+                    <div class="product-placeholder">👗</div>
+                    <div class="quick-view">
+    <button class="quick-view-btn"
+        onclick="window.location.href='pages/shop/product-detail.html?id=1'">
+        Quick View
+    </button>
+</div>  
+                </div>
+                <div class="product-detail">
+                    <div class="product-category">Premium Collection</div>
+                    <div class="product-name">Premium Festive Outfit</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-count">(103)</span>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="product-price">PKR 4,950</div>
+                        <div class="product-price-old">PKR 5,500</div>
+                        <div class="discount-badge">10% OFF</div>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(8, 'Premium Festive Outfit', 4950, 5500, 'Premium Collection')">
+                        🛒 Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Stay In Style</h2>
+            <p>Subscribe to our newsletter and get 10% off your first order plus exclusive updates</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #2d3748; color: white; padding: 60px 5% 30px; font-family: 'Fredoka', sans-serif;">
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+            
+            <!-- About Section -->
+            <div>
+                <div style="font-size: 28px; font-weight: 700; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">
+                    Cheer Champ
+                </div>
+                <p style="color: #a0aec0; line-height: 1.8; font-size: 14px; margin-bottom: 25px;">
+                    Your trusted destination for premium fashion and elegant collections. Quality meets style in every piece.
+                </p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://www.facebook.com/profile.php?id=100085191114412" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/cheerchamp.pk/" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@cheerchamp85" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://youtube.com/@cheerchamp.pkkidsclothingbrand?si=L7AzxWc4SMJo1L0M" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Shop -->
+            <div>
+                <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Shop</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <a href="pages/shop/women.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Women's Collection</a>
+                    <a href="pages/shop/girls.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Girls Collection</a>
+                    <a href="pages/shop/shendi.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shendi</a>
+                    <a href="index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">New Arrivals</a>
+                    <a href="index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Sale</a>
+                </div>
+            </div>
+
+<!-- Customer Care -->
+<div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Customer Care</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="pages/info/customer%20care/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Contact Us</a>
+        <a href="pages/info/customer%20care/shipping.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shipping info</a>
+        <a href="pages/info/customer%20care/returns.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Returns & Exchange</a>
+        <a href="pages/info/customer%20care/size.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Size Guide</a>
+        <a href="pages/info/customer%20care/FAQs.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">FAQs</a>
+    </div>
+</div>
+
+<!-- Company -->
+<div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Company</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="pages/info/company/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">About Us</a>
+        <a href="pages/info/company/store%20locator.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Store Locator</a>
+        <a href="pages/info/company/reviews.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Customer Reviews</a>
+        <a href="pages/info/company/privacy%20policy.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Privacy Policy</a>
+        <a href="pages/info/company/terms%20conditions.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Terms & Conditions</a>
+    </div>
+</div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #4a5568; text-align: center;">
+            <p style="color: #a0aec0; font-size: 14px; margin: 0;">
+                &copy; 2026 Cheer Champ. All rights reserved. Crafted with ❤️
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+        ✅ Added to cart!
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/checkout.js"></script>
+
+</body>
+</html>

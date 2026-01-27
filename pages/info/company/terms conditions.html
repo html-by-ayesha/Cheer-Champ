@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - Cheer Champ</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe6f0 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 5%;
+            box-shadow: 0 2px 20px rgba(255, 110, 199, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6ec7;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .icon-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(255, 110, 199, 0.1);
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .content-box {
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(255, 110, 199, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #ff6ec7;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            margin-left: 25px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe6f0 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #ff6ec7;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 5%;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            color: #ff6ec7;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #ddd;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #ff6ec7;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .content-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <a href="../../../index.html" class="logo">✨ Cheer Champ</a>
+        
+        <div class="nav-links">
+           <a href="../../shop/shendi.html">Shendi</a>
+    <a href="../../../index.html#winter">Winter '26</a>
+    <a href="../../shop/women.html">Women</a>
+    <a href="../../shop/girls.html">Girls</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="../customer care/about.html">About</a>
+    <a href="../../auth/login.html">Login</a>
+        </div>
+
+        <div class="header-icons">
+            <button class="icon-btn" onclick="window.location.href='../../../index.html'">🏠</button>
+            <button class="icon-btn" onclick="window.location.href='../../auth/login.html'">👤</button>
+            <button class="icon-btn" onclick="window.location.href='../../account/cart.html'">🛒</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Terms & Conditions 📋</h1>
+            <p>Last Updated: January 25, 2026</p>
+        </div>
+
+        <div class="content-box">
+            <div class="section">
+                <h2>Welcome to Cheer Champ</h2>
+                <p>By accessing and using our website, you agree to comply with and be bound by the following terms and conditions. Please read them carefully before making any purchase or using our services.</p>
+            </div>
+
+            <div class="section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By using www.cheerchamp.com, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, please do not use our website.</p>
+            </div>
+
+            <div class="section">
+                <h2>2. Use of Website</h2>
+                
+                <h3>Permitted Use</h3>
+                <p>You may use our website for:</p>
+                <ul>
+                    <li>Browsing shop and collections</li>
+                    <li>Making purchases for personal use</li>
+                    <li>Creating and managing your account</li>
+                    <li>Accessing customer support</li>
+                </ul>
+
+                <h3>Prohibited Activities</h3>
+                <p>You agree NOT to:</p>
+                <ul>
+                    <li>Use the website for any illegal or unauthorized purpose</li>
+                    <li>Attempt to gain unauthorized access to our systems</li>
+                    <li>Reproduce, distribute, or copy content without permission</li>
+                    <li>Engage in any activity that disrupts or interferes with the website</li>
+                    <li>Use automated systems to access the website without consent</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🎀 Important Notice</h3>
+                <p>Cheer Champ reserves the right to refuse service, terminate accounts, or cancel orders at our discretion, especially in cases of suspected fraud or violation of these terms.</p>
+            </div>
+
+            <div class="section">
+                <h2>3. Account Registration</h2>
+                <p>When creating an account, you agree to:</p>
+                <ul>
+                    <li>Provide accurate and complete information</li>
+                    <li>Maintain the security of your password</li>
+                    <li>Update your information as needed</li>
+                    <li>Accept responsibility for all activities under your account</li>
+                    <li>Notify us immediately of any unauthorized use</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Orders and Payments</h2>
+                
+                <h3>Order Acceptance</h3>
+                <p>All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order for reasons including:</p>
+                <ul>
+                    <li>Product unavailability</li>
+                    <li>Pricing errors</li>
+                    <li>Suspected fraud</li>
+                    <li>Payment issues</li>
+                </ul>
+
+                <h3>Pricing</h3>
+                <p>All prices are listed in Pakistani Rupees (PKR) and are subject to change without notice. We strive to ensure accuracy but are not responsible for typographical errors.</p>
+
+                <h3>Payment Methods</h3>
+                <p>We accept various payment methods including credit/debit cards, bank transfers, and cash on delivery (where available). All payments are processed securely.</p>
+            </div>
+
+            <div class="section">
+                <h2>5. Shipping and Delivery</h2>
+                <p>Shipping terms are as follows:</p>
+                <ul>
+                    <li>Delivery times are estimates and not guaranteed</li>
+                    <li>Risk of loss transfers to you upon delivery</li>
+                    <li>We are not responsible for delays caused by courier services</li>
+                    <li>International shipping is subject to customs regulations</li>
+                </ul>
+                <p>For detailed shipping information, please visit our <a href="../customer care/shipping.html" style="color: #ff6ec7;">Shipping Policy</a> page.</p>
+            </div>
+
+            <div class="section">
+                <h2>6. Returns and Exchanges</h2>
+                <p>We want you to love your purchase! Our return policy allows:</p>
+                <ul>
+                    <li>Returns within 7 days of delivery</li>
+                    <li>Items must be unworn, unwashed, and in original condition</li>
+                    <li>Original tags and packaging must be intact</li>
+                    <li>Sale items may not be eligible for return</li>
+                </ul>
+                <p>For complete detail, please refer to our <a href="../customer care/returns.html" style="color: #ff6ec7;">Returns & Exchange Policy</a>.</p>
+            </div>
+
+            <div class="section">
+                <h2>7. Intellectual Property</h2>
+                <p>All content on this website, including but not limited to:</p>
+                <ul>
+                    <li>Text, graphics, logos, and images</li>
+                    <li>Product designs and descriptions</li>
+                    <li>Software and code</li>
+                    <li>Trademarks and brand names</li>
+                </ul>
+                <p>...are the property of Cheer Champ and are protected by copyright and trademark laws. Unauthorized use is strictly prohibited.</p>
+            </div>
+
+            <div class="section">
+                <h2>8. Limitation of Liability</h2>
+                <p>Cheer Champ shall not be liable for:</p>
+                <ul>
+                    <li>Indirect, incidental, or consequential damages</li>
+                    <li>Loss of profits, data, or business opportunities</li>
+                    <li>Damages resulting from unauthorized access to your account</li>
+                    <li>Issues arising from third-party services or links</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>9. Product Descriptions</h2>
+                <p>We strive to provide accurate product descriptions and images. However:</p>
+                <ul>
+                    <li>Colors may vary due to screen settings</li>
+                    <li>Sizes may have slight variations due to handcrafting</li>
+                    <li>We do not guarantee that descriptions are error-free</li>
+                    <li>Product availability is subject to change</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>10. Privacy and Data Protection</h2>
+                <p>Your privacy is important to us. Please review our <a href="../company/privacy policy.html" style="color: #ff6ec7;">Privacy Policy</a> to understand how we collect, use, and protect your personal information.</p>
+            </div>
+
+            <div class="section">
+                <h2>11. Modifications to Terms</h2>
+                <p>We reserve the right to update or modify these Terms & Conditions at any time. Changes will be effective immediately upon posting. Your continued use of the website constitutes acceptance of the modified terms.</p>
+            </div>
+
+            <div class="section">
+                <h2>12. Governing Law</h2>
+                <p>These Terms & Conditions are governed by the laws of Pakistan. Any disputes shall be resolved in the courts of Karachi, Pakistan.</p>
+            </div>
+
+            <div class="section">
+                <h2>13. Contact Information</h2>
+                <p>If you have any questions about these Terms & Conditions, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> support@cheerchamp.com</li>
+                    <li><strong>Phone:</strong> +92 300 1234567</li>
+                    <li><strong>Address:</strong> Karachi, Pakistan</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3>✨ Thank You!</h3>
+                <p>Thank you for choosing Cheer Champ. We appreciate your business and look forward to serving you with premium quality fashion!</p>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer style="background: #2d3748; color: white; padding: 60px 5% 30px; font-family: 'Fredoka', sans-serif;">
+    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        
+        <!-- About Section -->
+        <div>
+            <div style="font-size: 28px; font-weight: 700; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">
+                Cheer Champ
+            </div>
+            <p style="color: #a0aec0; line-height: 1.8; font-size: 14px; margin-bottom: 25px;">
+                Your trusted destination for premium fashion and elegant collections. Quality meets style in every piece.
+            </p>
+            <div style="display: flex; gap: 15px;">
+                <a href="https://www.facebook.com/profile.php?id=100085191114412" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/cheerchamp.pk/" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@cheerchamp85" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://youtube.com/@cheerchamp.pkkidsclothingbrand?si=L7AzxWc4SMJo1L0M" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+
+
+
+        <!-- Shop -->
+        <div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Shop</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="../../shop/women.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Women's Collection</a>
+                <a href="../../shop/girls.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Girls Collection</a>
+                <a href="../../shop/shendi.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shendi</a>
+                <a href="../../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">New Arrivals</a>
+                <a href="../../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Sale</a>
+            </div>
+        </div>
+
+       <!-- Customer Care -->
+<div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Customer Care</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+       <a href="../customer care/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Contact Us</a>
+
+<a href="../customer care/shipping.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shipping info</a>
+
+<a href="../customer care/returns.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Returns & Exchange</a>
+
+<a href="../customer care/size.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Size Guide</a>
+
+<a href="../customer care/faqs.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">FAQs</a>
+
+    </div>
+</div>
+
+<!-- Company -->
+<div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Company</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="../customer care/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">About Us</a>
+        <a href="store locator.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Store Locator</a>
+        <a href="reviews.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Customer Reviews</a>
+        <a href="privacy policy.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Privacy Policy</a>
+     <a href="terms conditions.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Terms & Conditions</a>
+    </div>
+</div>
+
+</div>
+
+        <!-- Footer Bottom -->
+        <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #4a5568; text-align: center;">
+            <p style="color: #a0aec0; font-size: 14px; margin: 0;">
+                &copy; 2026 Cheer Champ. All rights reserved. Crafted with ❤️
+            </p>
+        </div>
+    </footer>
+<!-- Footer HTML yahan hoga -->
+
+<!-- JS Scripts -->
+<script src="../../../js/cart.js"></script>
+<script src="../../../js/script.js"></script>
+<script src="../../../js/checkout.js"></script>
+</body>
+</html>

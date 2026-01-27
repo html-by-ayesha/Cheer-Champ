@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Cheer Champ</title>
+    <link rel="stylesheet" href="../../css/style.css">
+
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        ✨ Free Shipping on Orders Over PKR 5000 ✨
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='../../index.html'" style="cursor: pointer;">Cheer Champ</div>
+          <nav>
+    <ul>
+        <li><a href="../shop/shendi.html">Shendi</a></li>
+<li><a href="../../index.html#winter">Winter '26</a></li>
+<li><a href="../shop/women.html">Women</a></li>
+<li><a href="../shop/girls.html">Girls</a></li>
+<li><a href="../info/company/reviews.html">Reviews</a></li>
+<li><a href="../info/customer%20care/about.html">About</a></li>
+<li><a href="../auth/login.html"><i class="fas fa-user"></i> Login</a></li>
+
+
+    </ul>
+</nav>
+            <div class="header-icons">
+                <button class="icon-btn" onclick="window.location.href='../../index.html'">🏠</button>
+                 <button class="icon-btn" onclick="window.location.href='../auth/login.html'">👤</button>
+                <button class="icon-btn cart-icon" onclick="window.location.href='cart.html'" style="position: relative;">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Page Content -->
+    <section class="cart-page">
+        <div class="cart-header">
+            <h1>Shopping Cart</h1>
+            <p>Review your items and proceed to checkout</p>
+        </div>
+
+        <div class="cart-container">
+            <!-- Cart Items -->
+            <div class="cart-items">
+                <div id="cartItemsContainer">
+                    <!-- Cart items will be loaded by JavaScript -->
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">🛒</div>
+                        <h2>Your Cart is Empty</h2>
+                        <p>Looks like you haven't added anything to your cart yet.</p>
+                        <button class="btn-primary" onclick="window.location.href='../../index.html'" style="margin-top: 20px; width: auto; padding: 16px 50px;">
+    Continue Shopping
+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="cart-summary" id="cartSummary">
+                <h2>Order Summary</h2>
+                
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">PKR 0</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="shipping">PKR 250</span>
+                </div>
+                
+                <div class="summary-row" style="color: #27ae60; font-size: 13px; margin-top: -10px;">
+                    <span>💡 Tip:</span>
+                    <span>Free shipping over PKR 5000</span>
+                </div>
+                
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span class="amount" id="total">PKR 0</span>
+                </div>
+                
+                <button class="checkout-btn" onclick="proceedToCheckout()">
+                    Proceed to Checkout
+                </button>
+                
+                <div class="continue-shopping">
+    <a href="../../index.html">← Continue Shopping</a>
+</div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: #fff9f0; border-radius: 15px; border: 2px solid #ffe6f5;">
+                    <h3 style="font-size: 16px; color: #ff6ec7; margin-bottom: 12px; font-family: 'Fredoka', sans-serif;">
+                        🎁 Special Offers
+                    </h3>
+                    <ul style="font-size: 13px; color: #666; line-height: 1.8; padding-left: 20px;">
+                        <li>Free gift wrapping on all orders</li>
+                        <li>Easy 7-day returns</li>
+                        <li>Cash on delivery available</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Stay In Style</h2>
+            <p>Subscribe to our newsletter and get 10% off your first order</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+   <!-- Head section me ye line add karo -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Footer -->
+<footer style="background: #2d3748; color: white; padding: 60px 5% 30px; font-family: 'Fredoka', sans-serif;">
+    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        
+        <!-- About Section -->
+        <div>
+            <div style="font-size: 28px; font-weight: 700; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">
+                Cheer Champ
+            </div>
+            <p style="color: #a0aec0; line-height: 1.8; font-size: 14px; margin-bottom: 25px;">
+                Your trusted destination for premium fashion and elegant collections. Quality meets style in every piece.
+            </p>
+            <div style="display: flex; gap: 15px;">
+                <a href="https://www.facebook.com/profile.php?id=100085191114412" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/cheerchamp.pk/" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@cheerchamp85" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://youtube.com/@cheerchamp.pkkidsclothingbrand?si=L7AzxWc4SMJo1L0M" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Shop -->
+<div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Shop</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="../shop/women.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Women's Collection</a>
+        <a href="../shop/girls.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Girls Collection</a>
+        <a href="../shop/shendi.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shendi</a>
+        <a href="../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">New Arrivals</a>
+        <a href="../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Sale</a>
+    </div>
+</div>
+
+        <!-- Customer Care -->
+<div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Customer Care</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+       <a href="../info/customer%20care/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Contact Us</a>
+<a href="../info/customer%20care/shipping.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shipping info</a>
+<a href="../info/customer%20care/returns.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Returns & Exchange</a>
+<a href="../info/customer%20care/size.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Size Guide</a>
+<a href="../info/customer%20care/faqs.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">FAQs</a>
+    </div>
+</div>
+        <!-- Company -->
+        <!-- Company -->
+<div>
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Company</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="../info/customer%20care/about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">About Us</a>
+        <a href="../info/company/store%20locator.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Store Locator</a>
+        <a href="../info/company/reviews.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Customer Reviews</a>
+        <a href="../info/company/privacy%20policy.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Privacy Policy</a>
+     <a href="../info/company/terms%20conditions.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Terms & Conditions</a>
+    </div>
+</div>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #4a5568; text-align: center;">
+        <p style="color: #a0aec0; font-size: 14px; margin: 0;">
+            &copy; 2026 Cheer Champ. All rights reserved. Crafted with ❤️
+        </p>
+    </div>
+</footer>
+ <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification" style="position: fixed; top: 20px; right: 20px; background: #27ae60; color: white; padding: 15px 25px; border-radius: 50px; font-weight: 600; z-index: 10000; opacity: 0; transform: translateX(400px); transition: all 0.3s; font-family: 'Fredoka', sans-serif;">
+        ✅ Added to cart!
+    </div>
+
+    <!-- Scripts -->
+   <script src="../../js/cart.js"></script>
+<script src="../../js/script.js"></script>
+<script src="../../js/checkout.js"></script>
+
+    
+    <script>
+        // Additional cart notification styling
+        const style = document.createElement('style');
+        style.textContent = `
+            .cart-notification.show {
+                opacity: 1 !important;
+                transform: translateX(0) !important;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

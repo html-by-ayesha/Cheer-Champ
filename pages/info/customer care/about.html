@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Cheer Champ</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <style>
+        /* About Page Styles */
+        .about-hero {
+            background: linear-gradient(135deg, #ffb3e6 0%, #ffe680 100%);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '⭐';
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            font-size: 60px;
+            opacity: 0.3;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .about-hero::after {
+            content: '⭐';
+            position: absolute;
+            bottom: 20%;
+            right: 10%;
+            font-size: 80px;
+            opacity: 0.3;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .about-hero h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 64px;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(255, 110, 199, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-hero p {
+            font-size: 20px;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .about-section {
+            margin-bottom: 80px;
+        }
+
+        .about-section h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 42px;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .about-section p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(255, 110, 199, 0.15);
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            border-color: #ff6ec7;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 35px rgba(255, 110, 199, 0.25);
+        }
+
+        .value-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #fff0f9 0%, #fff9e6 100%);
+            padding: 60px;
+            border-radius: 30px;
+            margin-bottom: 80px;
+            border: 3px solid #ffe6f5;
+        }
+
+        .story-section h2 {
+            text-align: left;
+        }
+
+        .story-section p {
+            text-align: left;
+            margin: 0 0 20px 0;
+        }
+
+        .team-section {
+            text-align: center;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            padding: 60px;
+            border-radius: 30px;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .contact-cta h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 42px;
+            color: white;
+            margin-bottom: 20px;
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        .contact-cta p {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .contact-btn {
+            padding: 18px 50px;
+            background: white;
+            color: #ff6ec7;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Fredoka', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .stats-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(255, 110, 199, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 16px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        ✨ Learn About Our Journey | Quality Fashion Since 2020 ✨
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='../../../index.html'" style="cursor: pointer;">Cheer Champ</div>
+            <nav>
+    <ul>
+       <a href="../../shop/shendi.html">Shendi</a>
+    <a href="../../../index.html#winter">Winter '26</a>
+    <a href="../../shop/women.html">Women</a>
+    <a href="../../shop/girls.html">Girls</a>
+    <a href="../company/reviews.html">Reviews</a>
+    <a href="../customer care/about.html">About</a>
+    <a href="../../auth/login.html">Login</a>
+    </ul>
+</nav>
+            <div class="header-icons">
+                <button class="icon-btn" onclick="window.location.href='../../../index.html'">🏠</button>
+                <button class="icon-btn" onclick="window.location.href='../../auth/login.html'">👤</button>
+                <button class="icon-btn cart-icon" onclick="window.location.href='../../account/cart.html'" style="position: relative;">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1>About Cheer Champ</h1>
+        <p>Where style meets elegance - Creating beautiful memories through premium fashion</p>
+    </section>
+
+    <!-- About Container -->
+    <div class="about-container">
+        <!-- Our Story -->
+        <div class="story-section">
+            <h2>Our Story 📖</h2>
+            <p>
+                Founded in 2020, Cheer Champ began with a simple vision: to make premium, elegant fashion 
+                accessible to everyone. What started as a small boutique has grown into a beloved fashion 
+                destination for women and children across Pakistan.
+            </p>
+            <p>
+                We believe that every occasion deserves the perfect outfit. Whether it's a wedding celebration, 
+                a mehndi ceremony, or a casual family gathering, we're here to make you look and feel your best. 
+                Our carefully curated collections blend traditional elegance with contemporary designs.
+            </p>
+            <p>
+                Every piece in our collection is selected with love and attention to detail. We work directly 
+                with skilled artisans and designers to bring you unique, high-quality garments that you won't 
+                find anywhere else. Your satisfaction and happiness are at the heart of everything we do.
+            </p>
+        </div>
+
+        <!-- Stats Showcase -->
+        <div class="stats-showcase">
+            <div class="stat-item">
+                <div class="stat-number">2,500+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Unique Designs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.9★</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+        </div>
+
+        <!-- Our Values -->
+        <div class="about-section">
+            <h2>Our Values 💖</h2>
+            <p>These principles guide everything we do at Cheer Champ</p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">✨</div>
+                    <h3>Quality First</h3>
+                    <p>We never compromise on quality. Every garment is carefully inspected to ensure it meets our high standards.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">💝</div>
+                    <h3>Customer Love</h3>
+                    <p>Your happiness is our priority. We go above and beyond to ensure you have a wonderful shopping experience.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🎨</div>
+                    <h3>Unique Designs</h3>
+                    <p>We offer exclusive designs you won't find elsewhere. Stand out from the crowd with our unique collections.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>Fast Delivery</h3>
+                    <p>We understand you're excited about your purchase. That's why we ensure quick and reliable delivery.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">💯</div>
+                    <h3>Authenticity</h3>
+                    <p>All our shop are 100% authentic. What you see is exactly what you get - no surprises!</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🌟</div>
+                    <h3>Affordable Luxury</h3>
+                    <p>Premium quality doesn't have to break the bank. We offer competitive prices without compromising quality.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- What We Offer -->
+        <div class="about-section">
+            <h2>What We Offer 🎁</h2>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 25px rgba(255, 110, 199, 0.15); margin-bottom: 20px;">
+                    <h3 style="font-family: 'Fredoka', sans-serif; font-size: 24px; color: #ff6ec7; margin-bottom: 15px;">
+                        👗 Women's Collection
+                    </h3>
+                    <p style="color: #666; line-height: 1.8; margin: 0;">
+                        Elegant dresses, maxi gowns, formal wear, and casual outfits for every occasion. 
+                        From traditional to contemporary styles, find the perfect outfit that matches your personality.
+                    </p>
+                </div>
+
+                <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 25px rgba(255, 110, 199, 0.15); margin-bottom: 20px;">
+                    <h3 style="font-family: 'Fredoka', sans-serif; font-size: 24px; color: #ff6ec7; margin-bottom: 15px;">
+                        👧 Girls Collection
+                    </h3>
+                    <p style="color: #666; line-height: 1.8; margin: 0;">
+                        Adorable party dresses, casual frocks, and special occasion outfits for your little princess. 
+                        Quality fabrics and comfortable designs that kids love to wear.
+                    </p>
+                </div>
+
+                <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 25px rgba(255, 110, 199, 0.15);">
+                    <h3 style="font-family: 'Fredoka', sans-serif; font-size: 24px; color: #ff6ec7; margin-bottom: 15px;">
+                        🎉 Shendi Collection
+                    </h3>
+                    <p style="color: #666; line-height: 1.8; margin: 0;">
+                        Exclusive mehndi, mayun, and pre-wedding outfits in vibrant colors. 
+                        Traditional designs with a modern touch, perfect for celebrating your special moments.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="about-section">
+            <h2>Why Choose Cheer Champ? 🌟</h2>
+            <div style="background: linear-gradient(135deg, #fff0f9 0%, #fff9e6 100%); padding: 50px; border-radius: 30px; border: 3px solid #ffe6f5;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center;">
+                    <div>
+                        <div style="font-size: 48px; margin-bottom: 15px;">📦</div>
+                        <h4 style="font-family: 'Fredoka', sans-serif; font-size: 18px; margin-bottom: 10px; color: #2d3748;">Free Shipping</h4>
+                        <p style="color: #666; font-size: 14px; margin: 0;">On orders over PKR 5000</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; margin-bottom: 15px;">↩️</div>
+                        <h4 style="font-family: 'Fredoka', sans-serif; font-size: 18px; margin-bottom: 10px; color: #2d3748;">Easy Returns</h4>
+                        <p style="color: #666; font-size: 14px; margin: 0;">7-day hassle-free returns</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; margin-bottom: 15px;">💳</div>
+                        <h4 style="font-family: 'Fredoka', sans-serif; font-size: 18px; margin-bottom: 10px; color: #2d3748;">COD Available</h4>
+                        <p style="color: #666; font-size: 14px; margin: 0;">Cash on delivery option</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; margin-bottom: 15px;">📱</div>
+                        <h4 style="font-family: 'Fredoka', sans-serif; font-size: 18px; margin-bottom: 10px; color: #2d3748;">24/7 Support</h4>
+                        <p style="color: #666; font-size: 14px; margin: 0;">WhatsApp customer service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h2>Let's Connect! 💬</h2>
+            <p>Have questions? Want to know more? We'd love to hear from you!</p>
+            <button class="contact-btn" onclick="window.open('https://wa.me/923001234567', '_blank')">
+                📱 Contact Us on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Stay In Style</h2>
+            <p>Subscribe to our newsletter and get 10% off your first order</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+       <!-- Head section me ye line add karo -->
+<!-- Head section me ye line add karo -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Footer -->
+<footer style="background: #2d3748; color: white; padding: 60px 5% 30px; font-family: 'Fredoka', sans-serif;">
+    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        
+        <!-- About Section -->
+        <div>
+            <div style="font-size: 28px; font-weight: 700; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">
+                Cheer Champ
+            </div>
+            <p style="color: #a0aec0; line-height: 1.8; font-size: 14px; margin-bottom: 25px;">
+                Your trusted destination for premium fashion and elegant collections. Quality meets style in every piece.
+            </p>
+            <div style="display: flex; gap: 15px;">
+                <a href="https://www.facebook.com/profile.php?id=100085191114412" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/cheerchamp.pk/" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@cheerchamp85" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://youtube.com/@cheerchamp.pkkidsclothingbrand?si=L7AzxWc4SMJo1L0M" target="_blank" style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #ff6ec7 0%, #ffd93d 100%); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 20px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+
+
+
+        <!-- Shop -->
+        <div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Shop</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="../../shop/women.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Women's Collection</a>
+                <a href="../../shop/girls.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Girls Collection</a>
+                <a href="../../shop/shendi.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shendi</a>
+                <a href="../../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">New Arrivals</a>
+                <a href="../../../index.html#shop" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Sale</a>
+            </div>
+        </div>
+
+        <!-- Customer Care -->
+        <div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Customer Care</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Contact Us</a>
+
+<a href="shipping.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Shipping info</a>
+
+<a href="returns.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Returns & Exchange</a>
+
+<a href="size.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Size Guide</a>
+
+<a href="faqs.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" 
+   onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" 
+   onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">FAQs</a>
+
+            </div>
+        </div>
+
+        <!-- Company -->
+        <div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white;">Company</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="about.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">About Us</a>
+                <a href="../company/store locator.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Store Locator</a>
+                <a href="../company/reviews.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Customer Reviews</a>
+                <a href="../company/privacy policy.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Privacy Policy</a>
+             <a href="../company/terms conditions.html" style="color: #a0aec0; text-decoration: none; font-size: 14px; transition: all 0.3s;" onmouseover="this.style.color='#ff6ec7'; this.style.paddingLeft='10px'" onmouseout="this.style.color='#a0aec0'; this.style.paddingLeft='0'">Terms & Conditions</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #4a5568; text-align: center;">
+        <p style="color: #a0aec0; font-size: 14px; margin: 0;">
+            &copy; 2026 Cheer Champ. All rights reserved. Crafted with ❤️
+        </p>
+    </div>
+</footer>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script src="../../../js/cart.js"></script>
+    <script src="../../../js/script.js"></script>
+</body>
+</html>
