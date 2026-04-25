@@ -23,6 +23,9 @@ Editor: VS Code
 Server: Live Server
 
 ## 📁 Project Structure
+## 📁 Project Structure
+
+```
 index.html                → Main Homepage
 
 pages/
@@ -50,6 +53,7 @@ pages/
         ├── returns.html      → Returns Policy
         ├── shipping.html     → Shipping Info
         └── size.html         → Size Guide
+```
 ## 🚀 How To Run
 1. Clone the repository
 2. Open in VS Code
