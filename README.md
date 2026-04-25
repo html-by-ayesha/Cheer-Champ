@@ -23,27 +23,33 @@ Editor: VS Code
 Server: Live Server
 
 ## 📁 Project Structure
-index.html              → Main Homepage
+index.html                → Main Homepage
+
 pages/
+│
 ├── shop/
-│   ├── girls.html      → Girls Collection
-│   ├── women.html      → Women Collection
-│   ├── shendi.html     → Shendi Collection
+│   ├── girls.html        → Girls Collection
+│   ├── women.html        → Women Collection
+│   ├── shendi.html       → Shendi Collection
 │   └── product-detail.html → Product Detail
+│
 ├── account/
-│   ├── login.html      → Login Page
-│   ├── signup.html     → Signup Page
-│   └── cart.html       → Shopping Cart
-├── info/
-│   ├── company/
-│   │   ├── about.html      → About Us
-│   │   ├── reviews.html    → Reviews
-│   │   └── privacy-policy.html → Privacy Policy
-│   └── customer-care/
-│       ├── FAQs.html       → FAQs
-│       ├── returns.html    → Returns Policy
-│       ├── shipping.html   → Shipping Info
-│       └── size.html       → Size Guide
+│   ├── login.html        → Login Page
+│   ├── signup.html       → Signup Page
+│   └── cart.html         → Shopping Cart
+│
+└── info/
+    │
+    ├── company/
+    │   ├── about.html        → About Us
+    │   ├── reviews.html      → Reviews
+    │   └── privacy-policy.html → Privacy Policy
+    │
+    └── customer-care/
+        ├── FAQs.html         → FAQs
+        ├── returns.html      → Returns Policy
+        ├── shipping.html     → Shipping Info
+        └── size.html         → Size Guide
 ## 🚀 How To Run
 1. Clone the repository
 2. Open in VS Code
